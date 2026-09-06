@@ -5,8 +5,9 @@
 
 class Memory
 {
-    public:
+    private:
     uint16_t memory[MAX_MEMORY];
+    public:
     Memory();
     //uint16_t it pads the new bits with 0's like 1111 to 00001111
     uint16_t read(uint16_t address);
