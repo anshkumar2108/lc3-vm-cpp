@@ -8,6 +8,6 @@ class VM{
     public:
     VM();
     void run();
-    void load_program(const std::string& filename);
+    bool load_program(const std::string& filename);
 
 };

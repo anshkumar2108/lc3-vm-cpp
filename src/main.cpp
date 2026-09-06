@@ -14,7 +14,7 @@ int main(int argc,char *argv[]){
     // 3. Create the Virtual Machine .Calling the constructor
 
     VM vm;
-    vm.load_program(filename);
+    if(!vm.load_program(filename))return 1;
     std::cout<<"Starting execution...\n";
     //Starting the fetch decode execute cycle loop
     vm.run();

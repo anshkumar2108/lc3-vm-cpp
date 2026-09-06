@@ -17,14 +17,14 @@ void VM::run()
     }
 }
 
-void VM::load_program(const std::string &filename)
+bool VM::load_program(const std::string &filename)
 {
     // Open file in binary mode
     std::ifstream file(filename, std::ios::binary);
     if (!file.is_open())
     {
         std::cout << "Error: Could not open file " << filename << std::endl;
-        return;
+        return false;
     }
     //Read the origin address (First 16 bits)
     uint16_t origin;
