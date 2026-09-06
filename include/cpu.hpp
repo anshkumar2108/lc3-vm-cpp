@@ -24,6 +24,7 @@ class CPU
     void trap_getc();
     void trap_out();
     void trap_in();
+    void trap_putsp();
     public:
     CPU();
     bool isRunning=true;

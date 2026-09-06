@@ -276,6 +276,9 @@ void CPU::execute_traps(uint16_t instr)
     case 0x23:
         trap_in();
         break;
+    case 0x24:
+        trap_putsp();
+        break;
     case 0x25:
         trap_halts();
         break;

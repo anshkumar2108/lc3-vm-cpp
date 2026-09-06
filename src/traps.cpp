@@ -2,6 +2,22 @@
 #include "cpu.hpp"
 #include "vm.hpp"
 #include <conio.h> // For _getch()
+void CPU::trap_putsp(){
+    uint16_t address=reg[R_R0];
+    uint16_t c=memory->read(address);
+    while(c!=0x0000){
+        auto char1=c&0b11111111;
+        auto char2=(c>>8)&0b11111111;
+        std::cout<<static_cast<char>(char1);
+        if(char2!=0x00){
+            //Only print if not null character.
+            std::cout<<static_cast<char>(char2);
+        }
+        address++;
+        c=memory->read(address);
+    }
+    std::cout<<std::flush;
+}
 void CPU::trap_puts(){
     //Get the starting address from R0
     uint16_t  address=reg[R_R0];
