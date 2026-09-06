@@ -1,0 +1,19 @@
+# CMake build artifacts
+build/
+out/
+bin/
+CMakeCache.txt
+CMakeFiles/
+# Compiled object and executable files
+*.exe
+*.obj
+*.o
+*.out
+dummy.txt
+
+# VS Code directory (local workspace settings)
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
