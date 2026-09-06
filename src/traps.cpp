@@ -30,7 +30,7 @@ void CPU::trap_halts(){
 void CPU::trap_getc(){
     // Read a single character from the keyboard.
     // _getch() does not echo the character to the terminal.
-    reg[R_R0]=_getch()&&0xFF;//Ensuring high 8 bits are removed
+    reg[R_R0]=_getch()&0xFF;//Ensuring high 8 bits are removed
 
 }
 
