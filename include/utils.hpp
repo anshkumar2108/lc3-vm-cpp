@@ -8,7 +8,7 @@ inline uint8_t get_opcode(uint16_t instruction){
 inline uint16_t sign_extend(uint16_t x,int bit_count){
     int neg=(x>>(bit_count-1))&1;//&1 to ignore stray bits
     if(neg)return x|(0xFFFF<<bit_count);
-    else return x|(0x0000<<bit_count);
+    else return x;
 }
 
 inline uint16_t swap16(uint16_t x){
