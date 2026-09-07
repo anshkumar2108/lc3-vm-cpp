@@ -1,0 +1,27 @@
+name: CMake Build & Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build Core VM
+      run: cmake --build ${{github.workspace}}/build --config Release --target lc3-vm
+
+    - name: Build Tests
+      run: cmake --build ${{github.workspace}}/build --config Release --target lc3-tests
+
+    - name: Run Tests
+      working-directory: ${{github.workspace}}/build
+      run: .\Release\lc3-tests.exe
