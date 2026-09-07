@@ -26,3 +26,31 @@ void test_add_instruction(){
     assert(cpu.reg[CPU::R_COND] == CPU::FL_POS);
     std::cout << "  -> test_add_instruction passed!\n" << std::endl;
 }
+void test_and_instruction(){
+    std::cout<<"Running test_and_instruction()..."<<std::endl;
+    Memory mem;
+    CPU cpu;
+    cpu.memory=&mem;
+    // TEST: AND R1, R1, #0 (Clear R1 to 0) -> Hex: 0x5260
+    cpu.reg[CPU::R_R1]=0xFFFF;//Fill with garbage
+    cpu.execute_and(0x5260);
+    assert(cpu.reg[CPU::R_R1]==0);
+    assert(cpu.reg[CPU::R_COND]==CPU::FL_Z);//Flag should be zero 
+    std::cout << "  -> test_and_instruction passed!\n" << std::endl;
+}
+
+void test_not_instruction() {
+    std::cout << "Running test_not_instruction()..." << std::endl;
+    Memory mem; 
+    CPU cpu; 
+    cpu.memory = &mem;
+
+    // TEST: NOT R2, R2 (Flip bits of R2) -> Hex: 0x94BF
+    cpu.reg[CPU::R_R2] = 0x00FF; 
+    cpu.execute_not(0x94BF);
+    
+    assert(cpu.reg[CPU::R_R2] == 0xFF00); // Bits should be perfectly inverted
+    assert(cpu.reg[CPU::R_COND] == CPU::FL_NEG);
+
+    std::cout << "  -> test_not_instruction passed!\n" << std::endl;
+}
