@@ -9,11 +9,17 @@ VM::VM()
 {
     cpu.memory = &memory;
 }
-void VM::run()
+void VM::run(int max_cycles)
 {
+    int cycles=0;
     while (cpu.isRunning)
     {
         cpu.step();
+        cycles++;
+        if(max_cycles>0&&cycles>=max_cycles){
+            std::cout<<"\n--- Halted: Maximum exeuction cycles reached ---\n"<<std::endl;
+            break;
+        }
     }
 }
 

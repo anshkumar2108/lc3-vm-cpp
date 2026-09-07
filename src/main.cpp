@@ -17,7 +17,7 @@ int main(int argc,char *argv[]){
     if(!vm.load_program(filename))return 1;
     std::cout<<"Starting execution...\n";
     //Starting the fetch decode execute cycle loop
-    vm.run();
+    vm.run();//Can give the max number of cycles here for terminal to safely exit if loop runs infinite number of times.
     std::cout<<"\n VM Execution Finished."<<std::endl;
     return 0;
 }
