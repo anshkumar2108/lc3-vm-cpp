@@ -28,6 +28,11 @@ class CPU
     public:
     CPU();
     bool isRunning=true;
+    enum Flags{
+        FL_POS=0b001, // 1
+        FL_Z=0b010, // 2
+        FL_NEG=0b100,// 4
+    };
     enum Registers
     {
         R_R0 = 0,

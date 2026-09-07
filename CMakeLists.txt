@@ -16,3 +16,15 @@ add_executable(lc3-vm
     src/traps.cpp
     src/vm.cpp
 )
+
+# --- TEST SUITE EXECUTABLE ---
+# We compile the test files ALONG WITH the core VM files (but NOT src/main.cpp)
+add_executable(lc3-tests 
+    test/test_main.cpp
+    test/test_utils.cpp
+    test/test_cpu.cpp
+    src/cpu.cpp
+    src/memory.cpp
+    src/traps.cpp
+    src/vm.cpp
+)
