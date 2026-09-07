@@ -10,6 +10,8 @@ CPU::CPU()
 void CPU::step()
 {
     uint16_t instruction = memory->read(reg[R_PC]);
+    // --- ADD THIS TRACE LINE ---
+    // std::cout << "DEBUG: PC=" << std::hex << reg[R_PC] << "  OPCODE=" << (instruction >> 12) << std::endl;
     reg[R_PC] = reg[R_PC] + 1; // Incremented the program counter after fetching the instruction.
     auto opcode = get_opcode(instruction);
     switch (opcode)

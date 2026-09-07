@@ -38,9 +38,12 @@ bool VM::load_program(const std::string &filename)
     //Read rest of the file instruction by instruction
     uint16_t instruction;
     while(file.read(reinterpret_cast<char*>(&instruction),sizeof(instruction))){
+        // std::cout<<"Debug: Writing"<<std::hex<<swap16(instruction)<<" to address "<<origin<<std::endl;
         // Swap the instruction, write it to memory, and advance the address pointer
+
         memory.write(origin,swap16(instruction));
         origin++;
     }
+    return true;
 
 }
