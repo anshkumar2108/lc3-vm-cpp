@@ -23,6 +23,8 @@ add_executable(lc3-tests
     test/test_main.cpp
     test/test_utils.cpp
     test/test_cpu.cpp
+    test/test_memory.cpp
+    test/test_vm.cpp
     src/cpu.cpp
     src/memory.cpp
     src/traps.cpp

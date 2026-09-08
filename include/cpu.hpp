@@ -6,6 +6,16 @@
 class CPU
 {
     private:
+    //Trap routines
+    void execute_traps(uint16_t instr);//To execute the traps 
+    void trap_puts();
+    void trap_halts();
+    void trap_getc();
+    void trap_out();
+    void trap_in();
+    void trap_putsp();
+    
+    public:
     void execute_br(uint16_t instr);//Branch 
     void execute_jmp(uint16_t instr);//Jump
     void execute_ld(uint16_t instr);//Load
@@ -17,15 +27,6 @@ class CPU
     void execute_lea(uint16_t instr);//Load effective address
     void execute_jsr(uint16_t instr);//Jump to subroutine. Handling of function call.
 
-    //Trap routines
-    void execute_traps(uint16_t instr);//To execute the traps 
-    void trap_puts();
-    void trap_halts();
-    void trap_getc();
-    void trap_out();
-    void trap_in();
-    void trap_putsp();
-    public:
     CPU();
     bool isRunning=true;
     enum Flags{
@@ -54,5 +55,9 @@ class CPU
     void execute_and(uint16_t instr);
     void execute_not(uint16_t instr);
     void update_flags(uint16_t dr);
+    //Test functions
+
+    void test_execute_jmp(uint16_t instr);
+
 
 };

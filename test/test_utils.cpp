@@ -15,5 +15,17 @@ void test_sign_extend(){
     assert(sign_extend(0b100000000, 9) == 0xFF00); // -256
     assert(sign_extend(0b111111111, 9) == 0xFFFF); // -1
 
+    // Test 6-bit values (used in LDR/STR offset)
+    assert(sign_extend(0b000000, 6) == 0x0000); // 0
+    assert(sign_extend(0b011111, 6) == 0x001F); // +31
+    assert(sign_extend(0b100000, 6) == 0xFFE0); // -32
+    assert(sign_extend(0b111111, 6) == 0xFFFF); // -1
+
+    // Test 11-bit values (used in JSR offset)
+    assert(sign_extend(0b00000000000, 11) == 0x0000); // 0
+    assert(sign_extend(0b01111111111, 11) == 0x03FF); // +1023
+    assert(sign_extend(0b10000000000, 11) == 0xFC00); // -1024
+    assert(sign_extend(0b11111111111, 11) == 0xFFFF); // -1
+
     std::cout << "  -> test_sign_extend passed!\n" << std::endl;
 }
