@@ -1,6 +1,6 @@
 # LC-3 Virtual Machine 🖥️
 
-A fully functional, modular Virtual Machine written in C++ from scratch that emulates the LC-3 (Little Computer 3) educational microprocessor architecture.
+A modular LC-3 Virtual Machine written in C++ from scratch, implementing the core user-space LC-3 instruction set, memory-mapped I/O, traps, object loading, and automated testing.
 
 ## Features
 * **Fetch-Decode-Execute Cycle**: Core processor loop fully implemented.
